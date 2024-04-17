@@ -16,26 +16,26 @@ const NavBar = () => {
                 </NavLink>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto text-left">
-                        <NavLink className="nav-link" to='/'><i className="fas fa-home"></i> Home</NavLink>
-                        <NavLink className="nav-link" to='/Link'>Link</NavLink>
+                    <Nav className="">
+                        <NavLink className={ styles.NavLink } to='/' exact activeClassName= { styles.Active } ><i className="fas fa-home"></i>Home</NavLink>
+                        <NavLink className={ styles.NavLink } to='/Link' activeClassName= { styles.Active } >Link</NavLink>
                     </Nav>
-                    <Nav className='ml-auto text-left'>
+                    <Nav className='ml-auto'>
                         {
                             isLoggedIn ? (
                                 <>
                                     <NavDropdown title={<span><i className="fa-solid fa-user"></i> Account</span>} id="basic-nav-dropdown">
-                                        <NavDropdown.Item as={NavLink} to="/profile" >Profile Page</NavDropdown.Item>
-                                        <NavDropdown.Item as={NavLink} to="/action" >Another action</NavDropdown.Item>
-                                        <NavDropdown.Item as={NavLink} to="/something" >Something</NavDropdown.Item>
+                                        <NavDropdown.Item as={NavLink} activeClassName= { styles.Active } to="/profile" >Profile Page</NavDropdown.Item>
+                                        <NavDropdown.Item as={NavLink} activeClassName= { styles.Active } to="/action" >Another action</NavDropdown.Item>
+                                        <NavDropdown.Item as={NavLink} activeClassName= { styles.Active } to="/something" >Something</NavDropdown.Item>
                                         <NavDropdown.Divider />
-                                        <NavDropdown.Item onClick={() => setIsLoggedIn(false)}> <i class="fa-solid fa-right-from-bracket"></i> Sign Out</NavDropdown.Item>
+                                        <NavDropdown.Item onClick={() => setIsLoggedIn(false)}> <i class="fa-solid fa-right-from-bracket"></i>Sign Out</NavDropdown.Item>
                                     </NavDropdown>
                                 </>
                             ) : (
                                 <>
-                                    <NavLink className="nav-link ms-2" to="/login"><i class="fa-solid fa-right-to-bracket"></i> Login</NavLink>
-                                    <NavLink className="nav-link ms-2" to="/signup"><i class="fa-solid fa-user-plus"></i> Sign Up</NavLink>
+                                    <NavLink className={ styles.NavLink } activeClassName= { styles.Active } to="/login"><i class="fa-solid fa-right-to-bracket"></i>Login</NavLink>
+                                    <NavLink className={ styles.NavLink } activeClassName= { styles.Active } to="/signup"><i class="fa-solid fa-user-plus"></i>Sign Up</NavLink>
                                 </>
                             )
                         }
